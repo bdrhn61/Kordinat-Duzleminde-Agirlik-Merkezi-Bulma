@@ -14,7 +14,6 @@ body, html {
     background-size: 20px 20px;
 }
 
-/* X ve Y eksenlerini kalınlaştırmak için */
 .grid::before, .grid::after {
     content: "";
     position: absolute;
@@ -23,17 +22,17 @@ body, html {
 
 .grid::before {
     width: 1000%;
-    height: 2px; /* X ekseni kalınlığı */
-    top: 50%; /* Orta noktanın üstü */
+    height: 2px; 
+    top: 50%; 
     left: 0;
     transform: translateX(-50%);
 }
 
 .grid::after {
-    width: 2px; /* Y ekseni kalınlığı */
+    width: 2px;
     height: 1000%;
     top: 0;
-    left: 50%; /* Orta noktanın solu */
+    left: 50%; 
     transform: translateY(-50%);
 }
 #deneme {
@@ -79,20 +78,19 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 0, 0, 0.2); /* Rengin saydamlığı için 0 ile 1 arasında bir değer kullanın */
+    background-color: rgba(255, 0, 0, 0.2); 
 
 
     color: black;
     font-size: 15px;
-    padding: 2px 8px; /* İsteğe bağlı: Üst kısma biraz iç içe alan ekleyin */
-    border-radius: 4px; /* İsteğe bağlı: Üst kısma köşe yuvarlama ekleyin */
-    position: fixed; /* Sabit pozisyon kullanarak ekranın sağ üst köşesine yerleştirin */
+    padding: 2px 8px; 
+    border-radius: 4px; 
+    position: fixed; 
     margin-top :40px;
     font-weight: bold;
 
 }
 
-/* Modal stilleri */
 .modal {
     display: none;
     position: fixed;
