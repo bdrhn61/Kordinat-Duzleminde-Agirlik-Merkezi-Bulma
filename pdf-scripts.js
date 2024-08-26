@@ -1,6 +1,5 @@
-//const canvas = document.getElementById('my_canvas');
 const pdfContainer = document.getElementById('pdf-container');
-const pdfUrl = './fff.pdf'; // PDF dosyanızın yolunu doğru şekilde ayarlayın
+const pdfUrl = './fff.pdf'; 
 let currentScale = 1;
 
 pdfjsLib.getDocument(pdfUrl).promise.then(pdfDocument => {
@@ -21,18 +20,16 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdfDocument => {
     console.error('PDF yükleme hatası:', error);
 });
 
-// Küçültme düğmesi tıklama olayını ekleyin
 const zoomOutButton = document.getElementById('zoomOutButton');
 zoomOutButton.addEventListener('click', function () {
-    currentScale -= 0.1; // Daha küçük bir ölçek belirleyebilirsiniz
+    currentScale -= 0.1; 
     if (currentScale < 0.1) {
-        currentScale = 0.1; // Minimum ölçek değeri
+        currentScale = 0.1;
     }
 
     const pdfContainer = document.getElementById('pdf-container');
-    pdfContainer.style.transform = `scale(${currentScale})`; // PDF konteynerini küçült
+    pdfContainer.style.transform = `scale(${currentScale})`; 
 
-    // İlgili canvas elemanlarını yeniden boyutlandırın
     const canvasElements = document.querySelectorAll('.pdf-page');
     canvasElements.forEach(canvas => {
         const canvasContext = canvas.getContext('2d');
@@ -43,7 +40,6 @@ zoomOutButton.addEventListener('click', function () {
         canvasContext.scale(currentScale, currentScale);
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Tekrar render yapın
         const page = pdfDocument.getPage(Number(canvas.getAttribute('data-page')));
         page.then(page => {
             page.render({ canvasContext: canvasContext, viewport: viewport });
@@ -53,17 +49,15 @@ zoomOutButton.addEventListener('click', function () {
 
 
 
-// Küçültme düğmesi tıklama olayını ekleyin
 const zoomInButton = document.getElementById('extraButton');
 
 zoomInButton.addEventListener('click', function () {
-    currentScale += 0.1; // Daha büyük bir ölçek belirleyebilirsiniz
+    currentScale += 0.1; 
     pdfContainer.style.transform = `scale(${currentScale})`;
 
     if (currentScale < 0.1) {
-        currentScale = 0.1; // Minimum ölçek değeri
+        currentScale = 0.1; 
     }
-   // pdfContainer.scrollTop = pdfContainer.scrollTop * currentScale;
 
 });
 
